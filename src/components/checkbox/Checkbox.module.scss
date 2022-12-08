@@ -1,0 +1,16 @@
+@import 'src/styles/variables';
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  color: $grey-300;
+  font-size: $font-base;
+  cursor: pointer;
+}
+
+.checkbox {
+  height: 20px;
+  stroke: $grey-300;
+}
