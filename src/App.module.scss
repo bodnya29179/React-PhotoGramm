@@ -11,6 +11,12 @@
 }
 
 .grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
   width: 100%;
-  margin-left: 270px;
+
+  padding: 20px;
+  margin: 0 0 0 270px;
 }

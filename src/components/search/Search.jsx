@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import classes from './Search.module.scss';
 import { leaveOneSpace } from '../../utils';
 
 const Search = ({ data, selectorCallback, searchDataCallback }) => {
@@ -30,7 +31,13 @@ const Search = ({ data, selectorCallback, searchDataCallback }) => {
 
   return (
     <Fragment>
-      <input type="text" value={searchValue} onChange={changeSearch}/>
+      <input
+        className={classes.searchField}
+        type="text"
+        placeholder="Search..."
+        value={searchValue}
+        onChange={changeSearch}
+      />
     </Fragment>
   );
 };
