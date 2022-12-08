@@ -1,4 +1,4 @@
-import { ImagesGrid } from './components';
+import { ImagesGrid, Search } from './components';
 import { useEffect, useState } from 'react';
 import { CATEGORIES, IMAGES } from './constants';
 import Filter from './components/filter/Filter';
@@ -11,7 +11,6 @@ function App() {
   const [searchedImages, setSearchedImages] = useState(IMAGES);
 
   useEffect(() => {
-    // console.log(filteredImages, searchedImages);
     const displayedImages = filteredImages.filter((filterImage) => {
       return searchedImages.some((searchImage) => searchImage.id === filterImage.id);
     });
@@ -20,8 +19,10 @@ function App() {
   }, [filteredImages, searchedImages]);
 
   const filterImages = (images) => {
-    console.log('filter', images);
     setFilteredImages(images);
+  }
+  const searchImages = (images) => {
+    setSearchedImages(images);
   }
   const imageSelector = (image) => image.categories;
 
@@ -31,12 +32,18 @@ function App() {
         <Filter
           data={IMAGES}
           options={Object.values(CATEGORIES)}
-          filterDataCallback={filterImages}
           selectorCallback={imageSelector}
+          filterDataCallback={filterImages}
         />
       </div>
 
       <div className={classes.grid}>
+        <Search
+          data={IMAGES}
+          selectorCallback={imageSelector}
+          searchDataCallback={searchImages}
+        />
+
         <ImagesGrid images={displayedImages}/>
       </div>
     </div>
