@@ -32,6 +32,10 @@ function App() {
     setDisplayedImages(displayedImagesOnPage);
   }, [filteredImages, searchedImages, page]);
 
+  useEffect(() => {
+    setPage(1);
+  }, [filteredImages, searchedImages]);
+
   return (
     <div className={classes.container}>
       <div className={classes.filter}>
