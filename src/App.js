@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { CATEGORIES, IMAGES } from './constants';
 import Filter from './components/filter/Filter';
 import classes from './App.module.scss';
+import NotFound from './components/not-found/NotFound';
 
 function App() {
   const [displayedImages, setDisplayedImages] = useState([]);
@@ -44,7 +45,11 @@ function App() {
           searchDataCallback={searchImages}
         />
 
-        <ImagesGrid images={displayedImages}/>
+        {
+          IMAGES.length && !displayedImages.length
+            ? <NotFound text="Images are not found"/>
+            : <ImagesGrid images={displayedImages}/>
+        }
       </div>
     </div>
   );
