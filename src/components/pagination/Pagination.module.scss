@@ -1,0 +1,22 @@
+@import 'src/styles/variables';
+
+.pages {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+
+.page {
+  font-size: $font-base;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  color: $white;
+  background-color: $purple-100-100;
+}
+
+.selectedPage {
+  font-weight: 700;
+  background-color: $purple-200;
+}
