@@ -27,14 +27,18 @@ function App() {
 
   return (
     <div className={classes.container}>
-      <Filter
-        data={IMAGES}
-        options={Object.values(CATEGORIES)}
-        filterDataCallback={filterImages}
-        selectorCallback={imageSelector}
-      />
+      <div className={classes.filter}>
+        <Filter
+          data={IMAGES}
+          options={Object.values(CATEGORIES)}
+          filterDataCallback={filterImages}
+          selectorCallback={imageSelector}
+        />
+      </div>
 
-      <ImagesGrid images={displayedImages}/>
+      <div className={classes.grid}>
+        <ImagesGrid images={displayedImages}/>
+      </div>
     </div>
   );
 }
