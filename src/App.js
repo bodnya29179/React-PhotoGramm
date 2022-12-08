@@ -10,6 +10,7 @@ const LIMIT_IMAGES_PER_PAGE = 10;
 
 function App() {
   const [displayedImages, setDisplayedImages] = useState([]);
+  const [numberOfImages, setNumberOfImages] = useState();
 
   const [filteredImages, setFilteredImages] = useState(IMAGES);
   const [searchedImages, setSearchedImages] = useState(IMAGES);
@@ -27,6 +28,7 @@ function App() {
 
     const displayedImagesOnPage = allDisplayedImages.slice((page - 1) * LIMIT_IMAGES_PER_PAGE, page * LIMIT_IMAGES_PER_PAGE);
 
+    setNumberOfImages(allDisplayedImages.length);
     setDisplayedImages(displayedImagesOnPage);
   }, [filteredImages, searchedImages, page]);
 
@@ -58,7 +60,7 @@ function App() {
                 </div>
 
                 <Pagination
-                  totalCount={IMAGES.length}
+                  totalCount={numberOfImages}
                   limit={LIMIT_IMAGES_PER_PAGE}
                   currentPage={page}
                   setPageCallback={changeCurrentPage}

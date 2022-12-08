@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from './Pagination.module.scss';
 import { getPagesCount } from '../../utils';
 
 const Pagination = ({ totalCount, limit, currentPage, setPageCallback }) => {
-  const totalPages = getPagesCount(totalCount, limit);
+  const [totalPages, setTotalPages] = useState();
+
+  useEffect(() => {
+    setTotalPages(getPagesCount(totalCount, limit));
+  }, [totalCount, limit]);
 
   return (
     <div className={ classes.pages }>
